@@ -11,4 +11,4 @@ The website project for BWFZ 40th anniversary.
 ### http://bwfz40th.icu
 
 
-### http://lsdog.github.io/BWFZ40th
+### http://lsdog.fun/BWFZ40th
