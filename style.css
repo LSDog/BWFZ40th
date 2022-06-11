@@ -8,3 +8,17 @@
     font-weight: 800;
     font-size: 1.5em;
 }
+
+.foot_bar {
+    color: white;
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 0;
+    background-color: #0a0013;
+    padding: 0.8em;
+    font-weight: 800;
+    font-size: 1em;
+}
