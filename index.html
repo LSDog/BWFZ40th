@@ -19,12 +19,30 @@
         }
     </style>
 
+    <script src="source/js/Bmob-2.2.51.min.js"></script>
+
+    <script>
+        /*Bmob.debug(true)*/
+        Bmob.initialize("a030683cd1324771", "200998");
+        const query = Bmob.Query("data");
+        query.get('0da2e1f25d').then(res => {
+            var visits = Number(res['bwfz40th-visits']);
+            if (!sessionStorage.getItem("isReload")) {
+                res.increment('bwfz40th-visits')
+                sessionStorage.setItem("isReload", true)
+                visits += 1
+            }
+            res.save()
+            document.getElementById("visits").innerText = visits
+        }).catch(err => {
+            console.log(err)
+        })
+    </script>
+
 </head>
 
 <body>
-
     <div style="position: fixed; background-color: #c8d8fc86; left: 0; right: 0; height: 100%;"></div>
-
     <div class="top_announce_bar">
         The unofficial website for BWFZ 40<sup>th</sup> anniversary
         <br>
@@ -32,13 +50,16 @@
     </div>
 
     <div class="foot_bar">
-        Author <a href="http://github.com/LSDogX">@LSDog</a> | <a style="color: #999999; font-weight: 200;">lsdog2006@qq.com</a>
+        <div style="float: left;">
+            Author <a href="http://github.com/LSDogX">@LSDog</a> | <a
+                style="color: #999999; font-weight: 200;">lsdog2006@qq.com</a>
+        </div>
+        <div style="float: right;">访问人数: <a id="visits" style="color: rgb(184, 233, 252);">-</a></div>
     </div>
 
 </body>
 
 <script>
-
 </script>
 
 </html>
