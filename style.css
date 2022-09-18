@@ -1,9 +1,9 @@
 .top_announce_bar {
-    display: block;
+    display: flex;
     position: fixed;
     left: 0;
     right: 0;
-    background-color: #00FF0055;
+    background-color: #00FF0066;
     padding: 0.5em;
     font-weight: 800;
     font-size: 1.5em;
