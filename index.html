@@ -5,133 +5,61 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="font.css">
 
     <title>BWFZ-40th-Anni</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link type="text/css" rel="stylesheet" href="css/elements.css">
+    <script src="js/Animation.js"></script>
 
     <style>
         html {
             height: 100%;
             font-family: "Josefin Sans", "sans-serif", "黑体";
-            background: #fcf2c886 url("school_snow.webp") center no-repeat fixed;
+            background-color: cornsilk;
             background-size: cover;
         }
     </style>
 
-    <script src="source/js/Bmob-2.2.51.min.js"></script>
-    <script src="source/js/three.js"></script>
-    <script src="https://kit.fontawesome.com/19ab1ba9b4.js" crossorigin="anonymous"></script>
-
     <script>
-        /*Bmob.debug(true)*/
-        Bmob.initialize("a030683cd1324771", "200998");
-        const query = Bmob.Query("data");
-        query.get('0da2e1f25d').then(res => {
-            var visits = Number(res['bwfz40th-visits']);
-            visited = true;
-            if (sessionStorage.getItem("isReload") != 'true') {
-                visited = false;
-                sessionStorage.setItem("isReload", 'true');
-            }
-            if (!visited) {
-                res.increment('bwfz40th-visits');
-                visits += 1;
-                res.save();
-            }
-            document.getElementById("visits").innerText = visits;
-        }).catch(err => {
-            console.log(err);
-        })
+        const log = console.log;
     </script>
 
 </head>
 
 <body>
 
-    <div
-        style="position: absolute; top: 0; background-color: #c8d8fc86; left: 0; right: 0; height: 100%; padding-bottom: 5em;">
-        <div class="top_announce_bar" style="display: block;">The unofficial website for BWFZ 40<sup>th</sup>
-            anniversary</div>
-        <div>
-            <div style="margin-top: 5em; padding: 1em; text-align: center;">
-                <h1>
-                    <i class="fa-solid fa-cake-candles"></i>
-                    祝北外附中40岁生日快乐!
-                    <i class="fa-solid fa-cake-candles"></i>
-                </h1>
-                (请假装这里有张贺图)
-            </div>
+    <script src="js/AutoResize.js"></script>
 
-            <div style="margin-top: 1em; padding: 1em;">
-                <div name="recommendation">
-                    <h2>
-                        <i class="fa-solid fa-brush"></i>
-                        作品展示 | Works showcase
-                    </h2>
-                    <div style="margin-top: 1em; padding: 0.5em; background-color: #41444b86;">
-                        <div id="showcase" style="overflow: hidden;">
-                            <table cellspacing="0" cellpadding="0" style="margin: 0 auto;">
-                                <tbody>
-                                    <tr>
-                                        <td id="showcase_1" valign="top">
-                                            <table>
-                                                <tr>
-                                                    <td>
-                                                        <div
-                                                            style="display: inline-block; margin: 0.2em; padding: 0.5em; background-color: #ffffffda">
-                                                            <h3 style="margin: 0;">北外附中40校庆表情包 by 陈依 </h3>
-                                                            <img src="https://img1.imgtp.com/2022/09/11/sxke5vlI.jpg"
-                                                                width="500em">
-                                                        </div>
+    <button id="do_test" type="button" style="position: fixed; z-index:1; font-size: 4em;">测试按钮</button>
 
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td id="showcase_2" valign="top"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- <div id="showcase_scroll" style="margin-left: 1em; display: block; width: 0.5em; height: 0.5em; background-color: #000000e3; border-radius: 0.2em;"></div> -->
-                    </div>
-                </div>
-            </div>
+    <div id="page1" class="page1">
+        <div id="bubble_english" class="bubble" style="left: -500px;">
+            <img src="img/talk.png" width="500" alt="bubble">
+            <h1 style="font-size: 6em; position: absolute; top: 0">~(TEST)</h1>
+        </div>
+        <div id="bubble_german" class="bubble" style="left: 1080px; top: 350px;">
+            <img src="img/talk.png" width="400" height="200" alt="bubble">
+            <h1 style="font-size: 6em; position: absolute; top: 0">~(德语)</h1>
+        </div>
+        <div id="bubble_japan" class="bubble" style="left: -600px; top: 650px;">
+            <img src="img/talk.png" width="600" height="500" alt="bubble">
+            <h1 style="font-size: 6em; position: absolute; top: 0">~(日语)</h1>
+        </div>
+        <div id="bubble_span" class="bubble" style="left: 1080px; top: 900px;">
+            <img src="img/talk.png" width="480" alt="bubble">
+            <h1 style="font-size: 6em; position: absolute; top: 0">~(西语)</h1>
+        </div>
+        <div id="bubble_russia" class="bubble" style="left: -600px; top: 650px;">
+            <img src="img/talk.png" width="600" height="400" alt="bubble">
+            <h1 style="font-size: 6em; position: absolute; top: 0">~(俄语)</h1>
+        </div>
+        <div id="bubble_china" class="bubble" style="left: 200px; top: 1920px;">
+            <img src="img/talk.png" width="700" height="300" alt="bubble">
+            <h1 style="font-size: 5em; color: coral; position: absolute; top: 0">中文<br />~生日快乐~</h1>
         </div>
     </div>
 
+    <script src="/js/Main.js"></script>
 
-    <div class="foot_bar">
-        <div style="float: left;">
-            Author <a href="http://github.com/LSDogX">@LSDog</a> | <a
-                style="color: #999999; font-weight: 200;">lsdog2006@qq.com</a>
-        </div>
-        <div style="float: right;">访问人数: <a id="visits" style="color: rgb(184, 233, 252);">-</a></div>
-    </div>
 </body>
-
-
-<script>
-    // 作品展示的滚动
-    /*
-    showcase_2.innerHTML = showcase_1.innerHTML;
-    var speed = 33;
-    var scroll_point = 0;
-    function scroll_showcase() {
-        if (showcase.scrollLeft >= showcase_1.scrollWidth) {
-            showcase.scrollLeft = 0;
-        } else {
-            showcase.scrollLeft++;
-        }
-        showcase_scroll.style["margin-left"] = showcase.scrollLeft/showcase_1.scrollWidth*10 + "em"
-    }
-    var interval = setInterval(scroll_showcase, speed);
-    */
-    //showcase.onmouseover = () => {clearInterval(interval); interval = setInterval(scroll_showcase, 5*speed)};
-    //showcase.onmouseout = () => {clearInterval(interval); interval=setInterval(scroll_showcase, speed)};
-</script>
-
-</html>
